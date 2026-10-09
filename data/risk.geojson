@@ -1,0 +1,37 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "source": "dados iniciais RotaSegura",
+    "updated": "2026-10-09T00:00:00Z"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Entorno Av. Roberto Silveira (BO acumulados)",
+        "level": "alto",
+        "radius_m": 450,
+        "source": "ISP-RJ/2025",
+        "valid_until": "2026-12-31"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-42.8150, -22.9155]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cruzamento RJ-106 x Estrada de Itaipuaçu",
+        "level": "medio",
+        "radius_m": 300,
+        "source": "SSP-RJ/2025",
+        "valid_until": "2026-12-31"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-42.7890, -22.9330]
+      }
+    }
+  ]
+}

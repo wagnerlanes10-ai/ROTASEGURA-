@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0a1628">
+<title>RotaSegura</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;width:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a1628}
+
+.splash-container{
+  position:fixed;
+  inset:0;
+  background:url('splash-bg.png') center center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  padding:40px 24px 60px;
+}
+
+.splash-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.8) 100%);
+  pointer-events:none;
+}
+
+.content{
+  position:relative;
+  z-index:10;
+  width:100%;
+  max-width:360px;
+  text-align:center;
+}
+
+.title{
+  font-size:42px;
+  font-weight:900;
+  color:#34d399;
+  margin-bottom:8px;
+  text-shadow:0 2px 20px rgba(52,211,153,.6);
+  letter-spacing:-1px;
+}
+
+.subtitle{
+  color:#e2e8f0;
+  font-size:16px;
+  margin-bottom:32px;
+  line-height:1.4;
+  text-shadow:0 1px 8px rgba(0,0,0,.8);
+}
+
+.enter-btn{
+  background:linear-gradient(135deg,#34d399,#10b981);
+  color:#06281c;
+  border:none;
+  padding:20px 48px;
+  font-size:18px;
+  font-weight:800;
+  border-radius:50px;
+  cursor:pointer;
+  width:100%;
+  box-shadow:0 8px 32px rgba(52,211,153,.5);
+  transition:all .2s;
+}
+
+.enter-btn:active{transform:scale(.96);box-shadow:0 4px 16px rgba(52,211,153,.3)}
+
+.error-msg{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#f87171;
+  font-size:16px;
+  text-align:center;
+  z-index:20;
+  display:none;
+  background:rgba(0,0,0,.8);
+  padding:20px;
+  border-radius:16px;
+  border:1px solid #f87171;
+}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.splash-container{animation:fadeIn .6s ease-out}
+</style>
+</head>
+<body>
+
+<div class="splash-container" id="splashContainer">
+  <div class="splash-overlay"></div>
+  
+  <div class="error-msg" id="errorMsg">
+    ⚠️ Imagem não carregou<br>
+    <small style="color:#94a3b8">Verifique se splash-bg.png está no repositório</small>
+  </div>
+  
+  <div class="content">
+    <h1 class="title">RotaSegura</h1>
+    <p class="subtitle">Navegação inteligente com alertas de segurança em tempo real</p>
+    <button class="enter-btn" onclick="enterApp()">Entrar no RotaSegura</button>
+  </div>
+</div>
+
+<script>
+// Verificar se a imagem carregou
+window.addEventListener('load', function(){
+  const img = new Image();
+  img.onload = function(){
+    console.log('✅ Imagem splash carregada com sucesso');
+  };
+  img.onerror = function(){
+    console.log('❌ Imagem splash NÃO carregou');
+    document.getElementById('errorMsg').style.display = 'block';
+    // Fallback: mostra fundo gradiente
+    document.getElementById('splashContainer').style.background = 
+      'radial-gradient(ellipse at 50% 30%, #0d2818 0%, #0a1628 50%, #050d18 100%)';
+  };
+  img.src = 'splash-bg.png?v=3';
+});
+
+function enterApp(){
+  window.location.href = '/index.html';
+}
+</script>
+</body>
+</html>

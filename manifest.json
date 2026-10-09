@@ -1,9 +1,0 @@
-{
-  "name": "RotaSegura",
-  "short_name": "RotaSegura",
-  "description": "Navegação inteligente com alertas de segurança",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#0a1628",
-  "theme_color": "#34d399"
-}

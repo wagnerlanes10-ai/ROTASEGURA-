@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "splash.html", "use": "@vercel/static" },
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "moderar.html", "use": "@vercel/static" },
+    { "src": "data/*", "use": "@vercel/static" },
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/data/(.*)", "dest": "/data/$1" },
+    { "src": "/splash.html", "dest": "/splash.html" },
+    { "src": "/moderar.html", "dest": "/moderar.html" },
+    { "src": "/", "dest": "/splash.html" },
+    { "src": "/index.html", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
